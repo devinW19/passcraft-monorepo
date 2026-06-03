@@ -1,73 +1,74 @@
 # ==========================================
-# 1. System & Global Files
+# 1. System & OS Files
 # ==========================================
 .DS_Store
-Thumbs.db
+.DS_Store?
+Thmubs.db
+ehthumbs.db
+Log.txt
 *.log
-.vscode/
-.idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.swp
 
 # ==========================================
-# 2. Frontend & Node Backend (React / Express)
+# 2. Node.js & React (Frontend & Node-Backend)
 # ==========================================
-# Dependencies
 **/node_modules/
-**/jspm_packages/
-
-# Production / Build outputs
-**/dist/
-**/build/
-**/.next/
-**/.out/
-
-# Frontend testing & coverage
+**/.pnp
+**/.pnp.js
 **/coverage/
+**/build/
+**/dist/
+**/.npm
+**/.eslintcache
 
 # ==========================================
-# 3. Python Backend (Flask)
+# 3. Python & Flask (Flask-Backend)
 # ==========================================
-# Byte-compiled / optimized / DLL files
 **/__pycache__/
 **/*.py[cod]
 **/*$py.class
-
-# Environments (Virtual environments)
-**/.venv/
-**/venv/
-**/ENV/
-**/env/
-
-# Python distribution / packaging
+**/.pytest_cache/
+**/.Python
+**/build/
 **/develop-eggs/
-**/.eggs/
+**/dist/
 **/downloads/
 **/eggs/
-**/.lib/
+**/.eggs/
+**/lib/
+**/lib64/
 **/parts/
 **/sdist/
 **/var/
 **/wheels/
 **/*.egg-info/
 
-# ==========================================
-# 4. Containerization (Docker)
-# ==========================================
-**/.dockerignore
-# Remove the line above if Member 4 needs to track .dockerignore files, 
-# but usually, they are tracked. Keep it tracked unless it holds secrets.
+# Virtual Environments (Python)
+**/venv/
+**/env/
+**/.env-py/
+**/ENV/
+**/pip-log.txt
+**/pip-delete-this-directory.txt
 
 # ==========================================
-# 5. Security & Environment Keys (CRITICAL)
+# 4. IDEs and Editors
+# ==========================================
+**/.vscode/
+**/.idea/
+**/*.suo
+**/*.ntvs*
+**/*.njsproj
+**/*.sln
+**/*.swp
+
+# ==========================================
+# 5. Security & Credentials (CRITICAL)
 # ==========================================
 **/.env
 **/.env.local
-**/.env.*.local
-**/local.properties
+**/.env.development.local
+**/.env.test.local
+**/.env.production.local
 **/*.pem
 **/*.key
-**/config/jwt_secret.txt
+**/cert.json
