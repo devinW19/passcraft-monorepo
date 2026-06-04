@@ -219,7 +219,7 @@ cp flask-backend/.env flask-backend/.env.local
 # Edit frontend/.env.development if your ports differ
 ```
 
-> ⚠️ **Never commit `.env` files.** They are already listed in `.gitignore`. Share secrets with your team using a secure vault (e.g., Azure Key Vault, 1Password Teams).
+> ⚠️ **Never commit `.env` files.** They are already listed in `.gitignore`. Share secrets with team using a secure vault (e.g., Azure Key Vault, 1Password Teams).
 
 ---
 
@@ -515,6 +515,6 @@ chore(docker):  add .dockerignore for flask-backend
 
 <div align="center">
 
-Built with ❤️ by the PassCraft Team &nbsp;|&nbsp; Portfolio Project &nbsp;|&nbsp; 2026
+Built with ❤️ by the QuadClique Team &nbsp;|&nbsp; Portfolio Project &nbsp;|&nbsp; 2026
 
 </div>
