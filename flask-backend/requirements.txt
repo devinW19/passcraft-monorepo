@@ -1,0 +1,135 @@
+# ==============================================================
+# FILE: flask-backend/requirements.txt
+# ==============================================================
+# OWNER:        Team Member 4 (Backend Developer — Python/Flask)
+# TECHNOLOGIES: Python 3.11+, pip, Flask ecosystem,
+#               PyMongo, NLP (VADER), PDF (ReportLab),
+#               Azure SDK, Gunicorn
+#
+# INSTRUCTIONS FOR TEAM MEMBER 4:
+# ─────────────────────────────────────────────────────────────
+# This file pins ALL Python package dependencies for the Flask
+# backend. Install with: pip install -r requirements.txt
+# Use a virtual environment: python -m venv .venv && .venv\Scripts\activate
+#
+# DEPENDENCY SPECIFICATION FORMAT:
+# - Use == to pin exact versions for reproducible builds.
+# - Use >= for packages where security patches are needed (e.g., cryptography).
+# - Run `pip freeze > requirements.txt` after testing to pin exact versions.
+# - Separate logical groups with comments for readability.
+#
+# GROUP 1 — WSGI Web Framework:
+#
+#   flask==3.0.3
+#     The core Flask micro-framework. Provides routing, request/
+#     response handling, Blueprint registration, and app factory.
+#
+#   flask-cors==4.0.1
+#     Flask extension for Cross-Origin Resource Sharing. Configured
+#     in create_app() to allow requests from the React frontend URL.
+#
+#   gunicorn==22.0.0
+#     Production WSGI HTTP server for Unix. Runs the Flask app with
+#     multiple worker processes. Used in the production Dockerfile.
+#
+# GROUP 2 — Database:
+#
+#   pymongo==4.7.3
+#     Official MongoDB driver for Python. Provides MongoClient,
+#     collection CRUD operations, and the aggregation pipeline API.
+#
+#   dnspython==2.6.1
+#     Required by PyMongo for DNS-based MongoDB Atlas connection
+#     strings (mongodb+srv:// URIs).
+#
+# GROUP 3 — Environment & Configuration:
+#
+#   python-dotenv==1.0.1
+#     Loads environment variables from .env files into os.environ.
+#     Used in create_app() and wsgi.py via load_dotenv().
+#
+# GROUP 4 — NLP / Sentiment Analysis:
+#   (Choose ONE of Option A or Option B)
+#
+#   Option A (VADER — recommended for MVP):
+#     vaderSentiment==3.3.2
+#       Rule-based sentiment analysis tool tuned for social media text.
+#       No GPU or large model download required. Fast and lightweight.
+#
+#   Option B (HuggingFace Transformers — for production accuracy):
+#     transformers==4.41.2
+#       HuggingFace library for state-of-the-art NLP models.
+#     torch==2.3.1
+#       PyTorch deep learning framework required by Transformers.
+#       WARNING: torch adds ~800MB to the image — use a GPU-enabled
+#       base image (nvidia/cuda) and mount model cache as a volume.
+#
+# GROUP 5 — PDF Ticket Generation:
+#
+#   reportlab==4.2.0
+#     Industry-standard Python PDF generation library. Provides
+#     canvas-based drawing and high-level Platypus flowables
+#     (Paragraph, Table, Image, SimpleDocTemplate).
+#
+#   qrcode==7.4.2
+#     Generates QR code images from string data. Used in
+#     ticket_generator.py to embed a scannable ticket QR code.
+#
+#   Pillow==10.4.0
+#     Python Imaging Library fork. Required by qrcode for image
+#     rendering and by ReportLab for embedding images in PDFs.
+#
+# GROUP 6 — Azure Cloud SDK:
+#
+#   azure-storage-blob==12.20.0
+#     Azure Blob Storage client library. Used in ticket_generator.py
+#     to upload generated PDF tickets to Azure Blob Storage.
+#
+# GROUP 7 — Data Processing:
+#
+#   pandas==2.2.2
+#     Optional but recommended for complex analytics aggregations.
+#     Can supplement MongoDB aggregation pipelines with in-memory
+#     DataFrame operations for trend calculations.
+#
+# GROUP 8 — Development & Testing (keep separate in dev-requirements.txt):
+#
+#   pytest==8.2.2
+#     Python testing framework. Write test functions in tests/ directory.
+#
+#   pytest-flask==1.3.0
+#     Flask-specific pytest fixtures (app client, application context).
+#
+#   httpretty==1.1.4
+#     HTTP mocking library for testing external API calls.
+# ==============================================================
+
+# WSGI Framework
+flask==3.0.3
+flask-cors==4.0.1
+gunicorn==22.0.0
+
+# Database
+pymongo==4.7.3
+dnspython==2.6.1
+
+# Environment
+python-dotenv==1.0.1
+
+# NLP — Sentiment Analysis (Option A: VADER)
+vaderSentiment==3.3.2
+
+# PDF Ticket Generation
+reportlab==4.2.0
+qrcode==7.4.2
+Pillow==10.4.0
+
+# Azure Cloud
+azure-storage-blob==12.20.0
+
+# Data Processing
+pandas==2.2.2
+
+# Testing
+pytest==8.2.2
+pytest-flask==1.3.0

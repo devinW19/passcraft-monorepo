@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  # Shared Local Database
+  mongodb:
+    image: mongo:latest
+    container_name: passcraft_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  # Node Backend Service
+  node-backend:
+    build: ./node-backend
+    container_name: passcraft_node_api
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/passcraft
+      - PORT=5000
+    depends_on:
+      - mongodb
+
+  # Flask Microservice Service
+  flask-backend:
+    build: ./flask-backend
+    container_name: passcraft_flask_ai
+    ports:
+      - "5001:5001"
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/passcraft
+    depends_on:
+      - mongodb
+
+  # React Frontend Service
+  frontend:
+    build: ./frontend
+    container_name: passcraft_ui
+    ports:
+      - "3000:3000"
+    depends_on:
+      - node-backend
+      - flask-backend
+
+volumes:
+  mongo_data:

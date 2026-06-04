@@ -1,0 +1,126 @@
+/*
+  ============================================================
+  FILE: frontend/src/styles/dashboard.css
+  ============================================================
+  OWNER:        Team Member 1 (Frontend Developer)
+  TECHNOLOGIES: CSS3, CSS Grid, CSS Flexbox, CSS Custom
+                Properties, CSS Animations / Transitions
+
+  INSTRUCTIONS FOR TEAM MEMBER 1:
+  ─────────────────────────────────────────────────────────────
+  This stylesheet is scoped to the Dashboard page and its child
+  components. Import it at the top of Dashboard.jsx. It handles
+  the two-column sidebar+content layout, chart container sizing,
+  stat-card grid, and loading skeleton animations.
+
+  STEPS TO IMPLEMENT:
+
+  1. Dashboard Shell Layout (CSS Grid):
+     - .dashboard-layout:
+         display: grid;
+         grid-template-columns: 260px 1fr;
+         grid-template-rows: auto 1fr;
+         grid-template-areas:
+           "sidebar topbar"
+           "sidebar main";
+         min-height: 100vh;
+     - .dashboard-sidebar  { grid-area: sidebar; }
+     - .dashboard-topbar   { grid-area: topbar; }
+     - .dashboard-main     { grid-area: main; }
+
+  2. Sidebar Styles:
+     - .dashboard-sidebar:
+         background: var(--color-surface);
+         border-right: 1px solid var(--color-border);
+         padding: var(--space-xl) var(--space-md);
+         position: sticky; top: 0; height: 100vh;
+     - .sidebar-nav-item: flex row, gap, padding, border-radius,
+       cursor, transition on background.
+     - .sidebar-nav-item.active: background var(--color-primary)
+       at 10% opacity, color var(--color-primary).
+     - .sidebar-logo: flex, align-items center, gap, font-weight bold.
+
+  3. Top Bar / Header Styles:
+     - .dashboard-topbar:
+         display: flex; justify-content: space-between;
+         align-items: center; padding: var(--space-md) var(--space-xl);
+         background: var(--color-surface);
+         border-bottom: 1px solid var(--color-border);
+         position: sticky; top: 0; z-index: 10;
+
+  4. Main Content Area:
+     - .dashboard-main:
+         padding: var(--space-xl);
+         background: var(--color-background);
+         overflow-y: auto;
+
+  5. Stat Cards Grid:
+     - .stat-cards-grid:
+         display: grid;
+         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+         gap: var(--space-lg);
+         margin-bottom: var(--space-xl);
+     - .stat-card:
+         background: var(--color-surface);
+         border-radius: var(--radius-lg);
+         padding: var(--space-lg);
+         box-shadow: var(--shadow-sm);
+         border: 1px solid var(--color-border);
+         transition: transform 0.2s, box-shadow 0.2s;
+     - .stat-card:hover: translateY(-4px), shadow-md upgrade.
+     - .stat-card__value: large font-size (var(--text-3xl)),
+       font-weight 700, color var(--color-primary).
+     - .stat-card__label: text-muted, text-sm, margin-top xs.
+     - .stat-card__icon: icon container, 48x48px, rounded,
+       background using primary colour at 12% opacity.
+
+  6. Chart Container Styles:
+     - .chart-section:
+         display: grid;
+         grid-template-columns: 2fr 1fr;
+         gap: var(--space-lg);
+         margin-bottom: var(--space-xl);
+     - .chart-card:
+         background: var(--color-surface);
+         border-radius: var(--radius-lg);
+         padding: var(--space-lg);
+         box-shadow: var(--shadow-sm);
+         border: 1px solid var(--color-border);
+     - .chart-card__header: flex, justify-between, align-center,
+       margin-bottom var(--space-md).
+     - .chart-card__title: font-semibold, text-lg.
+     - .chart-wrapper:
+         width: 100%; height: 300px;
+         (Recharts ResponsiveContainer will fill this wrapper.)
+
+  7. Data Table Styles:
+     - .data-table-section: full-width table card.
+     - .data-table: width 100%, border-collapse collapse.
+     - thead th: text-sm, text-muted, uppercase, letter-spacing,
+       text-align left, padding, border-bottom var(--color-border).
+     - tbody tr: border-bottom var(--color-border), hover
+       background at 4% opacity.
+     - td: padding var(--space-sm) var(--space-md), vertical-align middle.
+
+  8. Skeleton Loading Animations:
+     - @keyframes shimmer: translate(-100%) to translate(100%)
+       on a linear-gradient overlay.
+     - .skeleton: background: var(--color-border);
+       border-radius: var(--radius-md); overflow: hidden;
+       position: relative.
+     - .skeleton::after: position absolute, inset 0,
+       linear-gradient shimmer overlay, animation shimmer 1.5s
+       infinite.
+     - .skeleton-text: height 1em, margin-bottom var(--space-sm).
+     - .skeleton-card: height 120px, full-width.
+
+  9. Responsive Breakpoints:
+     - @media (max-width: 1024px):
+         .dashboard-layout: single column, sidebar collapses.
+         .chart-section: grid-template-columns: 1fr.
+     - @media (max-width: 768px):
+         .stat-cards-grid: grid-template-columns: repeat(2, 1fr).
+     - @media (max-width: 480px):
+         .stat-cards-grid: single column.
+  ============================================================
+*/
