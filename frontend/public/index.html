@@ -1,0 +1,68 @@
+<!--
+  ============================================================
+  FILE: frontend/public/index.html
+  ============================================================
+  OWNER:        Team Member 1 (Frontend Developer)
+  TECHNOLOGIES: HTML5, CSS3 (via linked stylesheets)
+
+  INSTRUCTIONS FOR TEAM MEMBER 1:
+  ─────────────────────────────────────────────────────────────
+  This is the single static HTML shell that serves as the entry
+  point for the entire React Single-Page Application (SPA).
+  React's virtual DOM will mount into the <div id="root"> element.
+
+  STEPS TO IMPLEMENT:
+  1. DOCTYPE & Language:
+     - Ensure the document opens with <!DOCTYPE html> and the
+       <html lang="en"> attribute for accessibility compliance.
+
+  2. <head> section — populate with:
+     - <meta charset="UTF-8"> for correct character encoding.
+     - <meta name="viewport" content="width=device-width,
+       initial-scale=1.0"> for responsive mobile-first scaling.
+     - <meta name="description" content="PassCraft — Event
+       Management & AI Analytics Platform"> for SEO.
+     - <meta name="theme-color" content="#0f172a"> to set
+       browser chrome color on mobile devices.
+     - <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+       pointing to the app's favicon asset.
+     - <title>PassCraft | Event Management Platform</title>
+
+  3. Open Graph / Social Meta Tags:
+     - Add og:title, og:description, og:image, og:url meta tags
+       so that social sharing (LinkedIn, Twitter, etc.) renders
+       rich link previews for the platform.
+
+  4. Preconnect hints:
+     - Add <link rel="preconnect"> tags for Google Fonts or any
+       CDN being used, to reduce DNS lookup latency.
+
+  5. <body> section:
+     - Include a <noscript> fallback message warning users that
+       JavaScript must be enabled to run this application.
+     - Include the root mounting point:
+         <div id="root"></div>
+       React's ReactDOM.createRoot() in main.jsx will target
+       this element to inject the entire component tree.
+     - DO NOT add any other markup here — all UI is injected
+       by React at runtime via main.jsx.
+
+  6. Vite / Build Tool Integration:
+     - Vite's dev server and production build automatically
+       injects the <script type="module" src="/src/main.jsx">
+       bundle. Do not manually add script tags here.
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="PassCraft — Event Management & AI Analytics Platform" />
+    <title>PassCraft | Event Management Platform</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run PassCraft.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
